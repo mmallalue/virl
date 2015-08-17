@@ -1,20 +1,375 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <topology xmlns="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.9" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.9/virl.xsd">
+    <extensions>
+        <entry key="AutoNetkit.enable_cdp" type="Boolean">true</entry>
+        <entry key="AutoNetkit.address_family" type="String">None</entry>
+        <entry key="AutoNetkit.enable_routing" type="Boolean">false</entry>
+        <entry key="management_lxc" type="Boolean">true</entry>
+        <entry key="management_network" type="String">exclusive</entry>
+    </extensions>
     <node name="iosv-1" type="SIMPLE" subtype="IOSv" location="215,234">
+        <extensions>
+            <entry key="config" type="string">! IOS Config generated on 2015-08-17 15:16
+! by autonetkit_0.18.1
+!
+hostname iosv-1
+boot-start-marker
+boot-end-marker
+!
+vrf definition Mgmt-intf
+!
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+!
+no aaa new-model
+!
+!
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+!
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+no service config
+enable password cisco
+ip classless
+ip subnet-zero
+no ip domain lookup
+line vty 0 4
+ transport input ssh telnet
+ exec-timeout 720 0
+ password cisco
+ login
+line con 0
+ password cisco
+!
+cdp run
+!
+!
+interface Loopback0
+  description Loopback
+  no ip address
+!
+interface GigabitEthernet0/0
+  description OOB Management
+  vrf forwarding Mgmt-intf
+  ! Configured on launch
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/1
+  description to iosv-2
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/2
+  description to iosv-3
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/3
+  description to iosv-4
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+!
+!
+!
+!
+end
+</entry>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+        </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
         <interface id="2" name="GigabitEthernet0/3"/>
     </node>
     <node name="iosv-2" type="SIMPLE" subtype="IOSv" location="652,239">
+        <extensions>
+            <entry key="config" type="string">! IOS Config generated on 2015-08-17 15:16
+! by autonetkit_0.18.1
+!
+hostname iosv-2
+boot-start-marker
+boot-end-marker
+!
+vrf definition Mgmt-intf
+!
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+!
+no aaa new-model
+!
+!
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+!
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+no service config
+enable password cisco
+ip classless
+ip subnet-zero
+no ip domain lookup
+line vty 0 4
+ transport input ssh telnet
+ exec-timeout 720 0
+ password cisco
+ login
+line con 0
+ password cisco
+!
+cdp run
+!
+!
+interface Loopback0
+  description Loopback
+  no ip address
+!
+interface GigabitEthernet0/0
+  description OOB Management
+  vrf forwarding Mgmt-intf
+  ! Configured on launch
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/1
+  description to iosv-1
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/2
+  description to iosv-3
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/3
+  description to iosv-4
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+!
+!
+!
+!
+end
+</entry>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+        </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
         <interface id="2" name="GigabitEthernet0/3"/>
     </node>
     <node name="iosv-3" type="SIMPLE" subtype="IOSv" location="427,378">
+        <extensions>
+            <entry key="config" type="string">! IOS Config generated on 2015-08-17 15:16
+! by autonetkit_0.18.1
+!
+hostname iosv-3
+boot-start-marker
+boot-end-marker
+!
+vrf definition Mgmt-intf
+!
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+!
+no aaa new-model
+!
+!
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+!
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+no service config
+enable password cisco
+ip classless
+ip subnet-zero
+no ip domain lookup
+line vty 0 4
+ transport input ssh telnet
+ exec-timeout 720 0
+ password cisco
+ login
+line con 0
+ password cisco
+!
+cdp run
+!
+!
+interface Loopback0
+  description Loopback
+  no ip address
+!
+interface GigabitEthernet0/0
+  description OOB Management
+  vrf forwarding Mgmt-intf
+  ! Configured on launch
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/1
+  description to iosv-2
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/2
+  description to iosv-1
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+!
+!
+!
+!
+end
+</entry>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+        </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
     </node>
     <node name="iosv-4" type="SIMPLE" subtype="IOSv" location="422,81">
+        <extensions>
+            <entry key="config" type="string">! IOS Config generated on 2015-08-17 15:16
+! by autonetkit_0.18.1
+!
+hostname iosv-4
+boot-start-marker
+boot-end-marker
+!
+vrf definition Mgmt-intf
+!
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+!
+no aaa new-model
+!
+!
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+!
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+no service config
+enable password cisco
+ip classless
+ip subnet-zero
+no ip domain lookup
+line vty 0 4
+ transport input ssh telnet
+ exec-timeout 720 0
+ password cisco
+ login
+line con 0
+ password cisco
+!
+cdp run
+!
+!
+interface Loopback0
+  description Loopback
+  no ip address
+!
+interface GigabitEthernet0/0
+  description OOB Management
+  vrf forwarding Mgmt-intf
+  ! Configured on launch
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/1
+  description to iosv-1
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+interface GigabitEthernet0/2
+  description to iosv-2
+  no ip address
+  cdp enable
+  duplex full
+  speed auto
+  no shutdown
+!
+!
+!
+!
+!
+end
+</entry>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+        </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
     </node>
